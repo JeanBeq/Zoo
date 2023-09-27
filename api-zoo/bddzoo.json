@@ -9,13 +9,16 @@
       },
       { "etat": true }
     ],
-    "mamivegi":
-      { "zebres": "amandine",
-        "girafes": "de barbarie",
-        "hippos": false,
-        "elephants": "de barbarie",
-        "panda": "de barbarie"
+    "mamivegi":[
+      { "zebres": 3,
+        "girafes": 4,
+        "hippos": null,
+        "elephants": null,
+        "panda":9
+
       },
+      { "etat": true }
+    ],
     "reptile": [
     {   "serpents": 3,
         "varants": 4,
