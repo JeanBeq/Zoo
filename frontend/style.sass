@@ -1,0 +1,60 @@
+$navbar-bg-color: #333; // Couleur de fond de la navbar
+$navbar-text-color: #fff; // Couleur du texte du lien
+$navbar-link-font-weight: bold; // Gras pour le texte du lien
+
+body
+    margin: 0
+    padding: 0
+    font-family: Arial, sans-serif
+
+// Styles pour la navbar
+.navbar
+    background-color: $navbar-bg-color // Utilisation de la variable pour la couleur de fond
+    overflow: hidden
+
+    .navbar-left
+        float: left // L'image à gauche
+        padding: 10px // Espace autour de l'image
+
+        img
+            height: 40px // Hauteur de l'image
+            width: auto // Largeur automatique pour conserver les proportions
+
+    .navbar-right
+        float: right // Le menu à droite
+
+        ul
+            list-style-type: none // Supprime les puces de liste
+            margin: 0
+            padding: 0
+
+            li
+                display: inline // Affiche les éléments de menu en ligne
+                margin-right: 20px // Espacement entre les éléments de menu
+
+                &:last-child
+                    margin-right: 0 // Supprime la marge du dernier élément de menu
+
+                a
+                    text-decoration: none // Supprime la décoration du lien
+                    color: $navbar-text-color // Utilisation de la variable pour la couleur du texte
+                    font-weight: $navbar-link-font-weight // Utilisation de la variable pour le poids de la police
+
+// Styles pour la navbar responsive
+@media screen and (max-width: 600px)
+    .navbar-left,
+    .navbar-right
+        float: none // Les éléments ne flottent plus à gauche ou à droite
+        text-align: center // Centre le contenu
+
+        .navbar-left img
+            display: block // Affiche l'image en bloc, centrée
+            margin: 0 auto // Centre l'image horizontalement
+
+        .navbar-right ul
+            text-align: center // Centre les éléments de menu
+            padding-top: 10px // Espace au-dessus des éléments de menu
+
+        .navbar-right ul li
+            display: block // Affiche les éléments de menu en bloc
+            margin: 0 // Supprime la marge entre les éléments de menu
