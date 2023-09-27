@@ -24,18 +24,3 @@ body {
         transform: scale(0.95); }
       body .homeMain .buttonHome:focus {
         outline: none; }
-    body .homeMain .clouds {
-      position: absolute;
-      top: -100px;
-      left: 0;
-      width: 100%;
-      height: 100px;
-      background-image: url("img/cloud.png");
-      background-size: 100px auto;
-      animation: moveClouds 10s linear infinite; }
-
-@keyframes moveClouds {
-  0% {
-    transform: translateX(0); }
-  100% {
-    transform: translateX(100%); } }
