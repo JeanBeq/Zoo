@@ -1,0 +1,60 @@
+{
+    "mamicarni": [
+      { "lions": 3,
+        "tigres": 4,
+        "loups": null,
+        "lynxs": null,
+        "hyennes":9
+
+      },
+      { "etat": true }
+    ],
+    "mamivegi":
+      { "zebres": "amandine",
+        "girafes": "de barbarie",
+        "hippos": false,
+        "elephants": "de barbarie",
+        "panda": "de barbarie"
+      },
+    "reptile": [
+    {   "serpents": 3,
+        "varants": 4,
+        "crocodiles": null,
+        "lezards": null,
+        "cameleons":9
+    },
+        { "etat": true }
+    ],
+
+    "volaille": [
+        { "poules": 3,
+        "paons": 4,
+        "aigle": null,
+        "cygogne": null,
+        "flamants":9
+        },
+        { "etat": true }
+    ],
+
+    "waticarni": [
+        { "requins": 3,
+        "orcs": 4,
+        "pirhannas": null,
+        "calamar géant": null,
+        "espadon":9
+        },
+        { "etat": true }
+    ],
+
+    "wativegi": [
+        { "poisson-chats": 3,
+        "méduse": 4,
+        "raie": null,
+        "crabe": null,
+        "dauphin":9
+        },
+        { "etat": true }
+    ]
+
+    
+   }
