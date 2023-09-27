@@ -20,7 +20,7 @@ fs.readFile(cheminFichier, 'utf8', (err, data) => {
         } catch (parseError) {
           console.error('Erreur lors de lanalyse JSON :', parseError);
         }
-    
+    console.log("😁");
     });
     
     router.get('/:catanimal', async (req, res) => {
