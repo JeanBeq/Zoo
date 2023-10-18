@@ -24,3 +24,6 @@ body {
         transform: scale(0.95); }
       body .homeMain .buttonHome:focus {
         outline: none; }
+      body .imageContainer img { 
+        width: 100%; 
+      }
