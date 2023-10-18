@@ -1,48 +1,39 @@
-const { Console } = require('console');
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const fs = require('fs');
-/* GET home page. */
 const cheminFichier = 'bddzoo.json';
+
+// Lecture du fichier en dehors des routes
+let jsonData = null;
+
 fs.readFile(cheminFichier, 'utf8', (err, data) => {
+    if (err) {
+        console.error('Erreur lors de la lecture du fichier :', err);
+    } else {
+        jsonData = JSON.parse(data);
+    }
+});
 
-    router.get('/', function(req, res, next) {
-    
-        if (err) {
-          res.send('Erreur lors de la lecture du fichier :');
-          return;
+router.get('/', (req, res, next) => {
+    if (jsonData) {
+        res.json(jsonData);
+    } else {
+        res.status(500).json({ error: 'Erreur lors de la lecture du fichier' });
+    }
+});
+
+router.get('/:catanimal', async (req, res) => {
+    const catanimal = req.params.catanimal;
+
+    if (jsonData) {
+        if (jsonData[catanimal]) {
+            res.json(jsonData[catanimal]);
+        } else {
+            res.status(404).json({ error: 'Catégorie non trouvée' });
         }
-      
-        // Analyser les données JSON
-        try {
-          const jsonData = JSON.parse(data);
-          res.json(data);
-        } catch (parseError) {
-          console.error('Erreur lors de lanalyse JSON :', parseError);
-        }
-    console.log("😁");
-    });
-    
-    router.get('/:catanimal', async (req, res) => {
-        const catanimal = req.params.catanimal;
-        
+    } else {
+        res.status(500).json({ error: 'Erreur lors de la lecture du fichier' });
+    }
+});
 
-
-        if (err) {
-            res.send('Erreur lors de la lecture du fichier :', err);
-            return;
-          }
-        
-          // Analyser les données JSON
-          try {
-            const animalcatData = JSON.parse(data);
-            
-            res.json(animalcatData[catanimal]);
-          } catch (parseError) {
-            res.send('Erreur lors de lanalyse JSON :', parseError);
-          }
-      });
-
-    });
-
-    module.exports = router;
+module.exports = router;
