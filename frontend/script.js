@@ -4,23 +4,26 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('http://localhost:3000')
     .then(response => response.json())
     .then(data => {
-        data.forEach(animal => {
-          const button = document.createElement('button');
-          button.textContent = animal.name;
-          button.addEventListener('click', () => {
-            console.log(animal);
-            displayAnimalDetails(animal);
-          });
-          animalContainer.appendChild(button);
-        });
-      })
-      .catch(error => {
+        for (let key in data) {
+            if (data.hasOwnProperty(key)) {
+                const animalName = key;
+                const a = document.createElement('a');
+                a.textContent = animalName;
+                a.addEventListener('click', () => {
+                    console.log(animalName);
+                    displayAnimalDetails(animalName, data[key]);
+                });
+                animalContainer.appendChild(a);
+            }
+        }
+    })
+    .catch(error => {
         console.error('Erreur lors de la requête :', error);
-      });
+    });
   
-    function displayAnimalDetails(animal) {
-      // Vous pouvez afficher les détails de l'animal dans une autre partie de la page
-      const animalDetails = document.getElementById('animalDetails');
-      animalDetails.innerHTML = `Nom: ${animal.name}, Espèce: ${animal.species}, Âge: ${animal.age}`;
+    function displayAnimalDetails(animalName, animalData) {
+        const animalDetails = document.getElementById('animalDetails');
+        // Utilisez animalName et animalData pour afficher les détails de l'animal
+        animalDetails.innerHTML = `Nom de l'animal : ${animalName}, Données de l'animal : ${JSON.stringify(animalData)}`;
     }
-  });
+});

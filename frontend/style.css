@@ -5,6 +5,13 @@ body {
   padding: 0;
   font-family: 'Inter', sans-serif;
   background-color: #f5f5f5; }
+  body a{
+    border-radius: 40px;
+    padding: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+  }
   body .homeMain {
     text-align: center; }
     body .homeMain h1 {
